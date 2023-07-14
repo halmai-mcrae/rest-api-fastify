@@ -4,8 +4,9 @@
   },
   "dependencies": {
     "@fastify/autoload": "^4.0.0",
+    "@fastify/static": "^5.0.0",
     "faker": "^6.6.6",
-    "fastify": "^4.19.2",
+    "fastify": "^3.20.1",
     "fastify-autoload": "^3.13.0",
     "fastify-cli": "^5.7.1",
     "fastify-cors": "^3.0.0",
