@@ -1,4 +1,7 @@
-import { posts } from '../../data/index.js'
+import {
+  posts,
+  postsHandler,
+} from '../../data/index.js'
 
 const PostSchema = {
   type: 'object',
@@ -26,6 +29,30 @@ export default async function (fastify, opts) {
     },
     async function (request, reply) {
       reply.send(posts)
+    }
+  )
+
+  fastify.get(
+    '/:id',
+    {
+      schema: {
+        params: {
+          type: 'object',
+          properties: {
+            id: { type: 'number' },
+          },
+        },
+        response: {
+          default: PostSchema,
+        },
+      },
+    },
+    async function (request, reply) {
+      const post = postsHandler.get(
+        request.params.id
+      )
+
+      reply.send(post)
     }
   )
 }

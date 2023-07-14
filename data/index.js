@@ -50,3 +50,13 @@ export let posts = [
       authors[2].lastName,
   },
 ]
+
+export const postsHandler = {
+  get: (id) => {
+    const post = posts.find(
+      (post) => post.id === id
+    )
+
+    return post
+  },
+}
